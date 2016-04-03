@@ -5,7 +5,7 @@ function ApiService($http) {
     this.url = "/space/";
 };
 
-ApiService.prototype.getAstronauts = function() {
+ApiService.prototype.getBeers = function() {
     // Return promise for controller to use.
     return this.$http.get(this.url)
 };

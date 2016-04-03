@@ -44,7 +44,7 @@ SRM =   Standard Reference Measure. It’s a standard method of referring to the
 IBU =   International Bittering Units. the higher the IBU the more bitter your beer is
         AAU (Alpha Acid Units) and HBU (Homebrew Bitterness Units) refer to the bittering potential of hops 
 
-OG =    Original gravity. Original gravity refers to the specific gravity of the wort pre-fermentation.        The higher the number, the more sugar is present. An OG of 1.054 would be 54 GUs
+OG =    Original gravity. Original gravity refers to the specific gravity of the wort pre-fermentation.        The higher the number, the more sugar is present. An OG of 1.054 would be 54 GUs (Gravity Units)
 
 FG =    Final gravity. refers to the specific gravity of the liquid post-fermentation.
 

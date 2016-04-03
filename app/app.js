@@ -6,7 +6,7 @@ var ngRoute = require('angular-route');
 var app = angular.module('beerApp', ['ngRoute']);
 
 
-app.config(function($routeProvider) {
+app.config(function($routeProvider, $locationProvider) {
   $routeProvider
     .when('/', {
       templateUrl: 'templates/main.html',
@@ -15,6 +15,8 @@ app.config(function($routeProvider) {
     .otherwise({
       redirectTo: '/'
     });
+
+    $locationProvider.html5Mode(true);
 });
 
 require('./scripts/services');

@@ -1,35 +1,31 @@
 'use strict';
 
 
-function MainCtrl(apiService) {
+function GetBeerCtrl(apiService) {
 	this.test = "Hello Astronauts!";
 	this.apiService = apiService;
-	// this.wikiData;
+	
 	this.beer;
 	
 	this.getData();
 };
 
-MainCtrl.prototype.getData = function() {
+GetBeerCtrl.prototype.getData = function() {
 	var self = this;
-	this.apiService.getAstronauts().then(function(response) {
+	this.apiService.getBeers().then(function(response) {
 		console.log(response);
 
-		// self.wikiData = response.data.people;
-		self.beer = response.data.totalResults;
+		self.beer = response.data.data;
 
+	}, function(data, status, headers, config){
+		$log.log(data.error + ' ' + status);
 	});
+	
 };
 
+GetBeerCtrl.$inject = ['apiService'];
 
-module.exports = MainCtrl;
+module.exports = GetBeerCtrl;
 
 
 
-// var app = angular.module('myApp', []);
-// app.controller('myCtrl', function($scope, $http) {
-//     $http.get("welcome.htm")
-//     .then(function(response) {
-//         $scope.myWelcome = response.data;
-//     });
-// });

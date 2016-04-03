@@ -10,7 +10,7 @@ webpackJsonp([0],[
 	var app = angular.module('beerApp', ['ngRoute']);
 
 
-	app.config(function($routeProvider) {
+	app.config(function($routeProvider, $locationProvider) {
 	  $routeProvider
 	    .when('/', {
 	      templateUrl: 'templates/main.html',
@@ -19,6 +19,8 @@ webpackJsonp([0],[
 	    .otherwise({
 	      redirectTo: '/'
 	    });
+
+	    $locationProvider.html5Mode(true);
 	});
 
 	__webpack_require__(5);
@@ -50,7 +52,7 @@ webpackJsonp([0],[
 	    this.url = "/space/";
 	};
 
-	ApiService.prototype.getAstronauts = function() {
+	ApiService.prototype.getBeers = function() {
 	    // Return promise for controller to use.
 	    return this.$http.get(this.url)
 	};
@@ -78,38 +80,35 @@ webpackJsonp([0],[
 	'use strict';
 
 
-	function MainCtrl(apiService) {
+	function GetBeerCtrl(apiService) {
 		this.test = "Hello Astronauts!";
 		this.apiService = apiService;
-		// this.wikiData;
+		
 		this.beer;
 		
 		this.getData();
 	};
 
-	MainCtrl.prototype.getData = function() {
+	GetBeerCtrl.prototype.getData = function() {
 		var self = this;
-		this.apiService.getAstronauts().then(function(response) {
+		this.apiService.getBeers().then(function(response) {
 			console.log(response);
 
-			// self.wikiData = response.data.people;
-			self.beer = response.data.totalResults;
+			self.beer = response.data.data;
 
+		}, function(data, status, headers, config){
+			$log.log(data.error + ' ' + status);
 		});
+		
 	};
 
+	GetBeerCtrl.$inject = ['apiService'];
 
-	module.exports = MainCtrl;
+	module.exports = GetBeerCtrl;
 
 
 
-	// var app = angular.module('myApp', []);
-	// app.controller('myCtrl', function($scope, $http) {
-	//     $http.get("welcome.htm")
-	//     .then(function(response) {
-	//         $scope.myWelcome = response.data;
-	//     });
-	// });
+
 
 /***/ }
 ]);

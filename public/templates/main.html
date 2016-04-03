@@ -1,10 +1,17 @@
 {{ctrl.test}}
 
+<!-- <pre>
+	{{ctrl.beer| json}}
+</pre> -->
 
-<pre>
-	{{ctrl.wikiData | json}}
-</pre>
 
-<pre>
-	{{ctrl.beer | json}}
-</pre>
+<div ng-repeat="beer in ctrl.beer" ng-init="beer.like = false">
+    <button>{{beer.name}}</button>
+    <input type="checkbox" ng-model="beer.like" />
+</div>
+
+<br>
+
+<div class="actions">
+    <button ng-click="recommend()">Beer Me</button>
+</div>
