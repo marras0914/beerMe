@@ -16,9 +16,11 @@ var request = require('request');
 
 // var apiProxy = httpProxy.createProxyServer(proxyOptions);
 
+
 // BreweryDB API keys
 var apiKey = '7c1b5905b50b778751d381cd69ff2b90';
-var apiForwardingUrl = 'https://api.brewerydb.com/v2/' + 'beers?'+ 'styleId=3' + '&abv=6' + '&key=' + apiKey; 
+var apiForwardingUrl = 'https://api.brewerydb.com/v2/' + 'beers?'+ 'ibu=30'+ '&' + 'styleId=80' + '&key=' + apiKey; 
+
 // var apiForwardingUrl = 'http://api.open-notify.org/astros.json?';
 // var apiForwardingUrl = 'https://api.brewerydb.com/v2/beers?ids=n3GrA9&key=7c1b5905b50b778751d381cd69ff2b90';
 
@@ -39,13 +41,17 @@ app.get('/space/*', function(req, res){
   request(apiForwardingUrl, function (error, response, body) { 
 
     console.log('A request was made to /space/, redirecting via request');
-
     if (!error && response.statusCode === 200) { 
-      console.log(body); 
+     
+      // console.log(body); 
       res.send(body); 
     } 
    }); 
 });
+
+app.all('/mars/*', function(req, res){
+    console.log('Signal sent to Mars!');
+})
 
 
 app.use(parser.json());

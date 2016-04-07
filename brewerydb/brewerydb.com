@@ -4,19 +4,17 @@ API key: 7c1b5905b50b778751d381cd69ff2b90
 
 http://api.brewerydb.com/v2/?key=7c1b5905b50b778751d381cd69ff2b90
 
-http://api.brewerydb.com/v2/search?q=%5C(beer/oeGSxs)&type=beer&withBreweries=Y&locality=Ottawa&region=Ontario&countryIsoCode=CA&key=7c1b5905b50b778751d381cd69ff2b90&format=json&p=1
+
 
 http://api.brewerydb.com/v2/locations?locality=Ottawa&region=Ontario&countryIsoCode=CA&key=7c1b5905b50b778751d381cd69ff2b90
 
+
 https://api.brewerydb.com/v2/beers?name=budweiser&key=7c1b5905b50b778751d381cd69ff2b90
+
 
 http://api.brewerydb.com/v2/search?q=60%2Bminute&type=beer&key=7c1b5905b50b778751d381cd69ff2b90
 
-https://api.brewerydb.com/v2/beers?name=budweiser&key=7c1b5905b50b778751d381cd69ff2b90
 
-https://api.brewerydb.com/v2/beers?style=3&key=7c1b5905b50b778751d381cd69ff2b90
-
-https://api.brewerydb.com/v2/styles?styleId=5&key=7c1b5905b50b778751d381cd69ff2b90
 
 
 
@@ -68,10 +66,13 @@ http://www.topfermented.com/2009/08/19/those-wacky-numbers-and-what-they-mean-ab
 
 
 
+########################   Search    ###############################
+https://api.brewerydb.com/v2/search?q=sam%20adams&key=7c1b5905b50b778751d381cd69ff2b90
 
 
 
-################################ KEYS #####################################
+
+################################ KEYS ###############################
 
 
 api:
@@ -91,6 +92,8 @@ locations?locality=Ottawa&region=Ontario&countryIsoCode=CA
 style:
 styles?styleId=
 
+
+1.  Boston Beer Company
 
 
 ################################ Sierra Nevada PA #####################################

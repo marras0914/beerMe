@@ -2,22 +2,13 @@
 
 var angular = require('angular');
 var ngRoute = require('angular-route');
+var ngAnimate = require('angular-animate');
 
-var app = angular.module('beerApp', ['ngRoute']);
+var app = angular.module('beerApp', ['ngRoute', 'ngAnimate']);
 
+app.config(require('./config'));
 
-app.config(function($routeProvider, $locationProvider) {
-  $routeProvider
-    .when('/', {
-      templateUrl: 'templates/main.html',
-      controller: 'MainCtrl as ctrl'
-    })
-    .otherwise({
-      redirectTo: '/'
-    });
-
-    $locationProvider.html5Mode(true);
-});
+app.$inject = ['ngRoute', 'ngAnimate'];
 
 require('./scripts/services');
 require('./scripts/controllers');
