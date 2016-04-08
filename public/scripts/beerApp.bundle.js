@@ -16,7 +16,7 @@ webpackJsonp([0],[
 
 	__webpack_require__(8);
 	__webpack_require__(11);
-	// require('./scripts/directives');
+	__webpack_require__(13);
 
 
 /***/ },
@@ -4218,8 +4218,9 @@ webpackJsonp([0],[
 	};
 
 	AnotherService.prototype.moreBeers = function() {
+	    console.log('moreBeers from api2');
 	    // Return promise for controller to use.
-	    return this.$http.get(this.url)
+	    return this.$http.post(this.url);
 	};
 
 	module.exports = AnotherService;
@@ -4261,31 +4262,80 @@ webpackJsonp([0],[
 			console.log('Hello from the MaicCtrl');
 
 			self.beer = response.data.data;
-
+			
 			return self.beer;
+
 			
 		}, function(data, status, headers, config){
 			$log.log(data.error + ' ' + status);
 		});	
 	};
 
-	MainCtrl.prototype.requestAnother = function(){
-		var self = this;
-		this.anotherService.moreBeers().then(function(response){
+	MainCtrl.prototype.requestAnother = [ 'self.beer', function(){
+		this.anotherService.moreBeers().then(function(){
 			console.log('Hello from requestAnother in MainCtrl');
 		});
 		
 
-	};
+	}];
 
 
-	MainCtrl.$inject = ['apiService'];
+	MainCtrl.$inject = ['apiService', 'anotherService'];
 
 	module.exports = MainCtrl;
 
 
 
 
+
+/***/ },
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	angular.module('beerApp')
+	    .directive('sharedScope', __webpack_require__(14))
+	    .directive('isolateScope', __webpack_require__(15));
+
+
+/***/ },
+/* 14 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	function SharedScope(){
+
+	    return{
+	        restrict: 'EA',
+	        template: '<h4>Shared</h4> Ibu : {{beer.ibu}} StyleId: {{beer.styleId}}'
+	        // controller: controller as ctrl,
+	        // link: function(scope, element, attrs){}
+	    };
+	};
+
+	module.exports = SharedScope;
+
+/***/ },
+/* 15 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	function IsolateScope(){
+	    
+	    return{
+	        scope: {
+	            //name: '@', //  <my-dir name="{{name}}" />    -->
+	            beer: '=', //  <my-dir beer="beer" />       <-->
+	            action: '&'
+	        },
+	        template: '<button ng-click="action();">Request Another</button>'
+	    };
+	};
+
+	module.exports = IsolateScope;
 
 /***/ }
 ]);

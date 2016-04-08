@@ -12,4 +12,4 @@ app.$inject = ['ngRoute', 'ngAnimate'];
 
 require('./scripts/services');
 require('./scripts/controllers');
-// require('./scripts/directives');
+require('./scripts/directives');

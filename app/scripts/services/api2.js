@@ -6,8 +6,9 @@ function AnotherService($http) {
 };
 
 AnotherService.prototype.moreBeers = function() {
+    console.log('moreBeers from api2');
     // Return promise for controller to use.
-    return this.$http.get(this.url)
+    return this.$http.post(this.url);
 };
 
 module.exports = AnotherService;

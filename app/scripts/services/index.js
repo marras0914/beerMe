@@ -2,4 +2,4 @@
 
 angular.module('beerApp')
     .service('apiService', require('./api'))
-    .service('anotherService', require('./requestAnother'));
+    .service('anotherService', require('./api2'));

@@ -1,6 +1,4 @@
 {{ctrl.test}}
-{{ctrl.test}}
-
 
 <div ng-repeat="beer in ctrl.beer" ng-init="beer.like = false">
     <button ng-click="requestAnother();">{{beer.name}}</button>
@@ -10,13 +8,16 @@
         <li>styleId: {{beer.styleId}}</li>
     </ul>
     <input type="checkbox" ng-model="beer.like" />
+    
+    <shared-scope></shared-scope>
+    <!-- <isolate-scope beer="beer"></isolate-scope> -->
+    <isolate-scope action="requestAnother();"></isolate-scope>
+
 </div>
+
 
 
 <div class="actions">
-    <button ng-click="requestAnother();">Beer Me</button>
+    <button ng-click="">Beer Me</button>
 </div>
 
-<div class="actions">
-    <button ng-click="getData()">Refresh</button>
-</div>
